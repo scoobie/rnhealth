@@ -1,0 +1,9 @@
+.navbar { padding-top: 0.1rem; padding-bottom: 0.1rem; }
+
+.my-navbar .navbar.navbar-expand-lg.navbar-light{
+  background-color: #cce6ff;
+}
+.navbar-nav{
+  color: black;
+  font-weight: bold;
+}

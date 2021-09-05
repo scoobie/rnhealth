@@ -1,0 +1,87 @@
+.my-btnheader button:hover{
+  background-color: burlywood;
+}
+.my-btnheader button:visited{
+  text-decoration: none !important;
+}
+
+.my-btnheader button:focus{
+  text-decoration: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+.my-header{
+  background-color: gainsboro;
+  padding-left: 0;
+  color: navy;
+}
+.my-header button{
+  color: navy;
+  font-weight: bold;
+}
+
+.my-header fa-icon{
+  color: navy;
+}
+
+.map-container {
+  flex-grow: 1;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.section__map{
+  border-radius: 5px;
+  border: 1px solid #c1d3df;
+}
+.card__section{
+  display: flex;
+  flex-direction: column;
+}
+.card__section .card{
+  flex: 1;
+}
+.card__section > .card__last{
+  flex: 1;
+}
+
+.right__card_section{
+  display: flex;
+  flex-direction: column;
+}
+.right__card_section > .card {
+  flex: 1;
+}
+
+.my-title{
+  color:steelblue;
+}
+
+@media (min-width: 768px) {
+  #labelSpain{display: none}
+  #labelGeologic{display: none}
+  #labelShading{display: none}
+  #labelRadiometry{display: none}
+}
+
+.input-error{
+  border: red 1px solid;
+}
+
+.input-valid{
+  border: green 1px solid;
+}
+
+.form-control.ng-valid.ng-touched{
+  border:1px green solid;
+}
+.form-control.ng-invalid{
+  border:1px red solid;
+}
+.form-control.ng-pristine{
+  border:1px grey solid;
+}
+
+.form-control.ng-valid{
+  border:1px green solid;
+}
