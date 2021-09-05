@@ -105,6 +105,16 @@ export class MapComponent implements OnInit,OnDestroy {
     this.layersVisibility={radiometry:true,shading:false,geology:false,spain:false}
     this.layersOpacity={radiometry:1,shading:0.6,geology:0.7,spain:0.7}
 
+    setTimeout(()=>this.renderMap(),100);
+  }
+
+  ngOnDestroy(): void {
+    this.subscriptionBaseMapsVisibility.unsubscribe();
+    this.subscriptionLayerOpacity.unsubscribe();
+    this.subscriptionLayerVisibility.unsubscribe();
+  }
+
+  renderMap(){
     // Define the view
     this.view= new View({
       zoom:5,
@@ -246,13 +256,7 @@ export class MapComponent implements OnInit,OnDestroy {
       stamenBaseLayer.setVisible(visibility.stamen)
     });
 
-    setTimeout(()=>this.setMapPosition(-891539,4800000),2000);
-  }
-
-  ngOnDestroy(): void {
-    this.subscriptionBaseMapsVisibility.unsubscribe();
-    this.subscriptionLayerOpacity.unsubscribe();
-    this.subscriptionLayerVisibility.unsubscribe();
+    this.setMapPosition(-891539,4800000)
   }
 
   // Base Maps Methods

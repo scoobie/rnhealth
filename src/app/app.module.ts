@@ -13,6 +13,11 @@ import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
 import {HttpClientModule} from "@angular/common/http";
 import {ReactiveFormsModule} from "@angular/forms";
 import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
+import { MeasurementsComponent } from './components/measurements/measurements.component';
+import { StatisticsComponent } from './components/statistics/statistics.component';
+import { AboutComponent } from './components/about/about.component';
+import {NgxGauge, NgxGaugeModule} from "ngx-gauge";
+
 
 
 @NgModule({
@@ -22,7 +27,10 @@ import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
     MapComponent,
     NavbarComponent,
     AppToastComponent,
-    AppToastCloseableComponent
+    AppToastCloseableComponent,
+    MeasurementsComponent,
+    StatisticsComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +39,8 @@ import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
     NgbModule,
     FontAwesomeModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxGaugeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

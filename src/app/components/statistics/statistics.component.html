@@ -1,0 +1,139 @@
+<div class="container py-4" >
+  <div class="row mb-5">
+  <div class="col-md-6 col-12 ">
+    <div class="card text-white bg-primary mb-2 text-center mx-auto" style="max-width: 15rem;">
+      <div class="card-header py-1"><h4 class="card-title">Buildings</h4></div>
+      <div class="card-body py-2">
+        <h1 class="card-title">58</h1>
+      </div>
+    </div>
+  </div>
+    <div class="col-md-6 col-12 mx-auto">
+      <div class="card text-white bg-primary mb-2 text-center mx-auto" style="max-width: 15rem;">
+        <div class="card-header py-1"><h4 class="card-title">Measurements</h4></div>
+        <div class="card-body py-2">
+          <h1 class="card-title">354</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row mb-5">
+    <div class="col-md-3 col-16 ">
+      <div class="card text-white bg-secondary mb-2 text-center mx-auto" style="max-width: 14rem;">
+        <div class="card-header py-1"><h5 class="card-title">Building Average</h5></div>
+        <div class="card-body py-2">
+          <h2 class="card-title">282 Bq/m3</h2>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3 col-6 mx-auto">
+      <div class="card text-white bg-secondary mb-2 text-center mx-auto" style="max-width: 14rem;">
+        <div class="card-header py-1"><h5 class="card-title">Building Max Average</h5></div>
+        <div class="card-body py-2">
+          <h2 class="card-title">1,036 Bq/m3</h2>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3 col-16 ">
+      <div class="card text-white bg-secondary mb-2 text-center mx-auto" style="max-width: 14rem;">
+        <div class="card-header py-1"><h5 class="card-title">Building Min Average</h5></div>
+        <div class="card-body py-2">
+          <h2 class="card-title">29 Bq/m3</h2>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3 col-6 mx-auto">
+      <div class="card text-white bg-primary mb-2 text-center mx-auto" style="max-width: 14rem;">
+        <div class="card-header py-1"><h5 class="card-title">Sensor Max Value</h5></div>
+        <div class="card-body py-2">
+          <h2 class="card-title">21,000 Bq/m3</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-2 col-6 text-center">
+      <h4>< 300 Bq/m3</h4>
+      <ngx-gauge
+
+        [value]="value1"
+        [append]="gaugeAppendText"
+        [thick]="10"
+        [foregroundColor]="color1"
+        [label]="label1"
+        [size]="boxSize"
+      >
+      </ngx-gauge>
+    </div>
+    <div class="col-md-2 col-6 text-center">
+      <h4>> 300 Bq/m3</h4>
+      <ngx-gauge
+
+        [value]="value2"
+        [append]="gaugeAppendText"
+        [thick]="10"
+        [foregroundColor]="color2"
+        [label]="label1"
+        [size]="boxSize"
+      >
+      </ngx-gauge>
+    </div>
+    <div class="col-md-2 col-6 text-center">
+      <h4>> 900 Bq/m3</h4>
+      <ngx-gauge
+
+        [value]="value3"
+        [append]="gaugeAppendText"
+        [thick]="10"
+        [foregroundColor]="color3"
+        [label]="label1"
+        [size]="boxSize"
+      >
+      </ngx-gauge>
+    </div>
+    <div class="col-md-2 col-6 text-center">
+      <h4>< 300 Bq/m3</h4>
+      <ngx-gauge
+
+        [value]="value4"
+        [append]="gaugeAppendText"
+        [thick]="10"
+        [foregroundColor]="color1"
+        [label]="label2"
+        [size]="boxSize"
+      >
+      </ngx-gauge>
+    </div>
+    <div class="col-md-2 col-6 text-center">
+      <h4>> 300 Bq/m3</h4>
+      <ngx-gauge
+
+        [value]="value5"
+        [append]="gaugeAppendText"
+        [thick]="10"
+        [foregroundColor]="color2"
+        [label]="label2"
+        [size]="boxSize"
+      >
+      </ngx-gauge>
+    </div>
+    <div class="col-md-2 col-6 text-center">
+      <h4>> 900 Bq/m3</h4>
+      <ngx-gauge
+
+        [value]="value6"
+        [append]="gaugeAppendText"
+        [thick]="10"
+        [foregroundColor]="color3"
+        [label]="label2"
+        [size]="boxSize"
+      >
+      </ngx-gauge>
+    </div>
+
+
+  </div>
+</div>
+
+
