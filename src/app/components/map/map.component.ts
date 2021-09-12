@@ -101,7 +101,7 @@ export class MapComponent implements OnInit,OnDestroy {
       this.point=point;
     });
 
-    this.baseMapVisibility={openLayers:true,cartoDB:false,stamen:false};
+    this.baseMapVisibility={satelliteMap:true,openLayers:false,cartoDB:false,stamen:false};
     this.layersVisibility={radiometry:true,shading:false,geology:false,spain:false}
     this.layersOpacity={radiometry:1,shading:0.6,geology:0.7,spain:0.7}
 
@@ -154,10 +154,21 @@ export class MapComponent implements OnInit,OnDestroy {
       })
     })
 
+    let satelliteBaseLayer= new TileLayer({
+     source:new XYZ({
+       //url:'http://tile.stamen.com/terrain/{z}/{x}/{y}.jpg',
+       url: 'https://services.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
+       attributions:['Powered by Esri',
+         'Source: Esri, DigitalGlobe, GeoEye, Earthstar Geographics, CNES/Airbus DS, USDA, USGS, AeroGRID, IGN, and the GIS User Community'],
+       attributionsCollapsible:false,
+       maxZoom:19
+     })
+   })
+
     // Base Layer Group
     const baseLayerGroup=new Group({
       layers:[
-        openlayerBaseLayer,catoDBBaseLayer,stamenBaseLayer
+        satelliteBaseLayer,openlayerBaseLayer,catoDBBaseLayer,stamenBaseLayer
       ]
     });
     this.map.addLayer(baseLayerGroup);
@@ -251,6 +262,7 @@ export class MapComponent implements OnInit,OnDestroy {
     // Maps Visibility
     this.subscriptionBaseMapsVisibility=this._baseMapsService.baseMapVisibility$.subscribe(visibility=>{
       this.baseMapVisibility=visibility;
+      satelliteBaseLayer.setVisible(visibility.satelliteMap);
       openlayerBaseLayer.setVisible(visibility.openLayers);
       catoDBBaseLayer.setVisible(visibility.cartoDB);
       stamenBaseLayer.setVisible(visibility.stamen)
@@ -260,8 +272,8 @@ export class MapComponent implements OnInit,OnDestroy {
   }
 
   // Base Maps Methods
-  public onSaveCheckedMap(valueOL:boolean,valueCarto:boolean,valueStamen:boolean){
-    console.log("visibility: "+this.baseMapVisibility)
+  public onSaveCheckedMap(valueSatellite: boolean,valueOL:boolean,valueCarto:boolean,valueStamen:boolean){
+    this.baseMapVisibility.satelliteMap=valueSatellite;
     this.baseMapVisibility.openLayers=valueOL;
     this.baseMapVisibility.cartoDB=valueCarto;
     this.baseMapVisibility.stamen=valueStamen;
@@ -281,11 +293,13 @@ export class MapComponent implements OnInit,OnDestroy {
   }
   // Select Geologic Map
   public onSaveGeologyCheck(value:boolean){
+    this.layersVisibility.spain=false;
     this.layersVisibility.geology=value;
     this._layersService.changeLayerVisibility(this.layersVisibility);
   }
   // Select Spain/Portugal Map
   public onSaveSpainCheck(value:boolean){
+    this.layersVisibility.geology=false;
     this.layersVisibility.spain=value;
     this._layersService.changeLayerVisibility(this.layersVisibility);
   }

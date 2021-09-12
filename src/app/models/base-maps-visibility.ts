@@ -1,5 +1,6 @@
 export class BaseMapsVisibility {
-  openLayers:boolean=true;
+  satelliteMap:boolean=true;
+  openLayers:boolean=false;
   cartoDB:boolean=false;
   stamen:boolean=false;
 }

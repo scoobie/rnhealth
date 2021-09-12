@@ -72,9 +72,20 @@
             <input class="form-check-input"
                    type="radio"
                    name="flexRadioDefault"
+                   id="satelliteRadioBtn"
+                   [checked]="this.baseMapVisibility.openLayers"
+                   (change)="onSaveCheckedMap(true,false,false,false)">
+            <label class="form-check-label" for="openlayersRadioBtn">
+              Satellite
+            </label>
+          </div>
+          <div class="form-check" >
+            <input class="form-check-input"
+                   type="radio"
+                   name="flexRadioDefault"
                    id="openlayersRadioBtn"
                    [checked]="this.baseMapVisibility.openLayers"
-                   (change)="onSaveCheckedMap(true,false,false)">
+                   (change)="onSaveCheckedMap(false,true,false,false)">
             <label class="form-check-label" for="openlayersRadioBtn">
               Openlayers
             </label>
@@ -85,7 +96,7 @@
                    name="flexRadioDefault"
                    id="cartoRadioBtn"
                    [checked]="this.baseMapVisibility.cartoDB"
-                   (change)="onSaveCheckedMap(false,true,false)">
+                   (change)="onSaveCheckedMap(false,false,true,false)">
             <label class="form-check-label" for="cartoRadioBtn">
               Carto DB
             </label>
@@ -96,9 +107,9 @@
                    name="flexRadioDefault"
                    id="stamenRadioBtn"
                    [checked]="this.baseMapVisibility.stamen"
-                   (change)="onSaveCheckedMap(false,false,true)">
+                   (change)="onSaveCheckedMap(false,false,false,true)">
             <label class="form-check-label" for="stamenRadioBtn">
-              Stamen terrain
+              Stamen Terrain
             </label>
           </div>
         </div>
@@ -279,7 +290,7 @@
             <ngb-progressbar [value]="point.pixelValPerc" [type]="getColor()"></ngb-progressbar>
           </div>
           <div class="row justify-content-center pb-2" >
-            <button type="button" [disabled]="true" class="btn btn-primary ">Risk Assessment</button>
+            <button type="button"  hidden [disabled]="true" class="btn btn-primary ">Risk Assessment</button>
           </div>
         </div>
       </div>
