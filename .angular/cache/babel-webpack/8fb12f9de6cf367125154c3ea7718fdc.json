@@ -1,0 +1,1 @@
+{"ast":null,"code":"export class Mesure {\n  constructor(Identifier, LonLat, pixel) {\n    this.Identifier = Identifier;\n    this.LonLat = LonLat;\n    this.pixel = pixel;\n  }\n\n}","map":null,"metadata":{},"sourceType":"module"}

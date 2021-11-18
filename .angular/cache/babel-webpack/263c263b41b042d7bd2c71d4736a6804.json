@@ -1,0 +1,1 @@
+{"ast":null,"code":"export class LayersVisibility {\n  constructor() {\n    this.radiometry = true;\n    this.shading = false;\n    this.geology = false;\n    this.spain = false;\n  }\n\n}","map":null,"metadata":{},"sourceType":"module"}

@@ -1,0 +1,1 @@
+{"ast":null,"code":"export class BaseMapsVisibility {\n  constructor() {\n    this.satelliteMap = false;\n    this.openLayers = true;\n    this.cartoDB = false;\n    this.stamen = false;\n  }\n\n}","map":null,"metadata":{},"sourceType":"module"}

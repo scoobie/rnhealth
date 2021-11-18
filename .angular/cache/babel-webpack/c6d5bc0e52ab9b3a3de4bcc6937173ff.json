@@ -1,0 +1,1 @@
+{"ast":null,"code":"export class PointMap {\n  constructor() {\n    this.description = \"\";\n    this.descriptionExtended = \"\";\n    this.idGeology = \"\";\n    this.pixelValue = 0;\n    this.lat = 0;\n    this.lon = 0;\n    this.address = \"\";\n    this.pixelValPerc = 0;\n    this.elevation = 0;\n  }\n\n}","map":null,"metadata":{},"sourceType":"module"}

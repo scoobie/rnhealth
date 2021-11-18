@@ -1,0 +1,1 @@
+{"ast":null,"code":"export class LayersOpacity {\n  constructor() {\n    this.radiometry = 1;\n    this.shading = 0.3;\n    this.geology = 0.3;\n    this.spain = 0.3;\n  }\n\n}","map":null,"metadata":{},"sourceType":"module"}
