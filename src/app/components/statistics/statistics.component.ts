@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {RestApiService} from "../../services/rest-api.service";
 import {transform} from "ol/proj";
-import {Class} from "leaflet";
+//import {Class} from "leaflet";
 import {Mesure} from "../../models/Mesure";
 import {delay} from "rxjs/operators";
 

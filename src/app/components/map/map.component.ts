@@ -110,10 +110,12 @@ export class MapComponent implements OnInit,OnDestroy {
     });
 
     this.baseMapVisibility={satelliteMap:true,openLayers:false,cartoDB:false,stamen:false};
-    this.layersVisibility={radiometry:true,shading:false,geology:false,spain:false}
-    this.layersOpacity={radiometry:1,shading:0.6,geology:0.7,spain:0.7}
+    this.layersVisibility={radiometry:true,shading:false,geology:false,spain:false};
+    this.layersOpacity={radiometry:1,shading:0.6,geology:0.7,spain:0.7};
+    //this.renderMap();
+    //this.setMapPosition(-891539,4800000);
     setTimeout(()=>this.renderMap(),100);
-    this.setMapPosition(-891539,4800000);
+    //this.setMapPosition(-891539,4800000);
   }
 
   ngOnDestroy(): void {
@@ -220,11 +222,6 @@ export class MapComponent implements OnInit,OnDestroy {
     });
 
 
-
-
-
-
-
    let spainWMSLayer = new TileLayer({
       source: new WMS({
         url: 'https://sig.lneg.pt/server/services/MGEP_1M/MapServer/WMSServer?',
@@ -235,35 +232,6 @@ export class MapComponent implements OnInit,OnDestroy {
         }
       })
     });
-
-   /* let spainWMSLayer=new TileLayer({
-      source:new WMS({
-        url:'http://epic-webgis-portugal.isa.ulisboa.pt/wms/epic?',
-        params:{
-          LAYERS:'Distritos',
-          FORMAT:'image/png',
-          TRANSPARENT:true
-        }
-      })
-    });*/
-
-/*
-    let spainWMSLayer:any;
-
-    this.http.get('assets/freguesia.geojson').subscribe((json:any)=>{
-      this.json=json;
-      spainWMSLayer=new VectorImage({
-        source:new SourceVector({
-
-
-          format:new GeoJson(),
-          url:this.json
-        })
-      })
-
-    })*/
-
-
 
 
     let rasterTileLayerGroup= new Group({

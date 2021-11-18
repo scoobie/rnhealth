@@ -20,7 +20,6 @@ import {NgxGauge, NgxGaugeModule} from "ngx-gauge";
 import {LeafletModule} from "@asymmetrik/ngx-leaflet";
 
 
-
 @NgModule({
   declarations: [
     AppComponent,
