@@ -17,6 +17,9 @@ export class AboutComponent implements OnInit {
   limLow:number=80.7;
   limNull:number=60;
 
+
+  // sjust for test
+
   constructor(private http:HttpClient) {
   }
 
