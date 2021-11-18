@@ -3,8 +3,10 @@ import {faEnvelope,faMapPin,faMap,faLayerGroup,faChartBar,faRadiation,faMountain
 import Map from 'ol/Map';
 import SourceVector from 'ol/source/Vector';
 import VectorLayer from 'ol/layer/Vector';
+import VectorImage from 'ol/layer/VectorImage'
 import Feature from 'ol/Feature';
 import Point from 'ol/geom/Point';
+import GeoJson from 'ol/format/GeoJSON';
 import Style from 'ol/style/Style';
 import Icon from 'ol/style/Icon';
 import View from 'ol/View';
@@ -25,6 +27,10 @@ import {LayersService} from "../../services/layers.service";
 import {RestApiService} from "../../services/rest-api.service";
 import {BaseMapService} from "../../services/base-map.service";
 import {fromLonLat,transform} from "ol/proj";
+import { HttpClient } from '@angular/common/http';
+import VectorSource from "ol/source/Vector";
+import GeoStyle from 'ol/style/Style';
+import GeoStroke from 'ol/style/Stroke';
 
 @Component({
   selector: 'app-map',
@@ -93,7 +99,9 @@ export class MapComponent implements OnInit,OnDestroy {
               private _baseMapsService:BaseMapService,
               private _mapService:MapService,
               private _layersService:LayersService,
-              private _restApiService:RestApiService) {
+              private _restApiService:RestApiService,
+              private http:HttpClient) {
+
   }
 
   ngOnInit(): void {
@@ -104,8 +112,8 @@ export class MapComponent implements OnInit,OnDestroy {
     this.baseMapVisibility={satelliteMap:true,openLayers:false,cartoDB:false,stamen:false};
     this.layersVisibility={radiometry:true,shading:false,geology:false,spain:false}
     this.layersOpacity={radiometry:1,shading:0.6,geology:0.7,spain:0.7}
-
     setTimeout(()=>this.renderMap(),100);
+    this.setMapPosition(-891539,4800000);
   }
 
   ngOnDestroy(): void {
@@ -113,6 +121,8 @@ export class MapComponent implements OnInit,OnDestroy {
     this.subscriptionLayerOpacity.unsubscribe();
     this.subscriptionLayerVisibility.unsubscribe();
   }
+
+
 
   renderMap(){
     // Define the view
@@ -209,16 +219,51 @@ export class MapComponent implements OnInit,OnDestroy {
       })
     });
 
-    let spainWMSLayer=new TileLayer({
+
+
+
+
+
+
+   let spainWMSLayer = new TileLayer({
+      source: new WMS({
+        url: 'https://sig.lneg.pt/server/services/MGEP_1M/MapServer/WMSServer?',
+        params: {
+          LAYERS: 7,
+          FORMAT: 'image/png',
+          TRANSPARENT: true
+        }
+      })
+    });
+
+   /* let spainWMSLayer=new TileLayer({
       source:new WMS({
-        url:'https://sig.lneg.pt/server/services/MGEP_1M/MapServer/WMSServer?',
+        url:'http://epic-webgis-portugal.isa.ulisboa.pt/wms/epic?',
         params:{
-          LAYERS:7,
+          LAYERS:'Distritos',
           FORMAT:'image/png',
           TRANSPARENT:true
         }
       })
-    });
+    });*/
+
+/*
+    let spainWMSLayer:any;
+
+    this.http.get('assets/freguesia.geojson').subscribe((json:any)=>{
+      this.json=json;
+      spainWMSLayer=new VectorImage({
+        source:new SourceVector({
+
+
+          format:new GeoJson(),
+          url:this.json
+        })
+      })
+
+    })*/
+
+
 
 
     let rasterTileLayerGroup= new Group({
@@ -372,7 +417,10 @@ export class MapComponent implements OnInit,OnDestroy {
 
   setMapPosition(x:number, y:number){
     this.map.getView().setCenter([x,y]);
-    this.map.getView().setZoom(6);
+    this.map.getView().setZoom(7);
+    let xy=transform([x,y],'EPSG:4326','EPSG:3857');
+    this.getPoint(xy[0],xy[1],[x,y]);
+    this.initialStatus=false;
   }
 
   // Get color for Progress bar

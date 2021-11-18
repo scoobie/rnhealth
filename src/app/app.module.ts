@@ -11,12 +11,13 @@ import {AppToastCloseableComponent} from "./components/notifications/app-toast-c
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
 import {HttpClientModule} from "@angular/common/http";
-import {ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
 import { MeasurementsComponent } from './components/measurements/measurements.component';
 import { StatisticsComponent } from './components/statistics/statistics.component';
 import { AboutComponent } from './components/about/about.component';
 import {NgxGauge, NgxGaugeModule} from "ngx-gauge";
+import {LeafletModule} from "@asymmetrik/ngx-leaflet";
 
 
 
@@ -40,7 +41,9 @@ import {NgxGauge, NgxGaugeModule} from "ngx-gauge";
     FontAwesomeModule,
     HttpClientModule,
     ReactiveFormsModule,
-    NgxGaugeModule
+    NgxGaugeModule,
+    FormsModule,
+    LeafletModule
   ],
   providers: [],
   bootstrap: [AppComponent]
