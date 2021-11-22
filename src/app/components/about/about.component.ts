@@ -13,9 +13,9 @@ export class AboutComponent implements OnInit {
   json: any;
   freguesias:Array<L.Layer>=[];
   feature: L.GeoJSON;
-  limHigh:number=175;
-  limLow:number=80.7;
-  limNull:number=60;
+  limHigh:number=70.5;
+  limLow:number=34;
+  limNull:number=30;
 
 
   // sjust for test
