@@ -1,2 +1,116 @@
-<div class="map" leaflet [leafletOptions]="options" (leafletMapReady)="onMapReady($event)">
+<div class="container-fluid">
+  <div class="row">
+    <div class="col col-lg-3 col-12 pl-3 pr-1 py-2" style="height: 100vh">
+      <div class="card ">
+        <div class="card-header my-header py-2 pl-3 px-1 ">
+          <fa-icon [icon]="faChart" class="pr-2"></fa-icon>
+          <b>Radiation Threshold Metric</b>
+        </div>
+        <div class="card-body py-1">
+          <div class="form-check py-1" >
+            <input class="form-check-input"
+                   type="radio"
+                   name="flexRadioDefault"
+                   id="maxRadioBtn"
+                   (change)="onSaveLimitCheck(true,false,false,false)"
+                   [checked]="this.mapPotential.maxValue">
+            <label class="form-check-label" for="maxRadioBtn">
+              Max
+            </label>
+          </div>
+          <div class="form-check py-1" >
+            <input class="form-check-input"
+                   type="radio"
+                   name="flexRadioDefault"
+                   id="meanRadioBtn"
+                   (change)="onSaveLimitCheck(false,true,false,false)"
+                   [checked]="this.mapPotential.meanValue">
+            <label class="form-check-label" for="meanRadioBtn">
+              Mean
+            </label>
+          </div>
+          <div class="form-check py-1">
+            <input class="form-check-input"
+                   type="radio"
+                   name="flexRadioDefault"
+                   id="medianRadioBtn"
+                   (change)="onSaveLimitCheck(false,false,true,false)"
+                   [checked]="this.mapPotential.medianValue">
+            <label class="form-check-label" for="medianRadioBtn">
+              Median
+            </label>
+          </div>
+          <div class="form-check py-1">
+            <input class="form-check-input"
+                   type="radio"
+                   name="flexRadioDefault"
+                   id="thirdQRadioBtn"
+                   (change)="onSaveLimitCheck(false,false,false,true)"
+                   [checked]="this.mapPotential.tQuartileValue">
+            <label class="form-check-label" for="thirdQRadioBtn">
+              3rd Quartile
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <div class="card my-1">
+        <div class="card-header my-header py-2 pl-3 px-1">
+          <fa-icon [icon]="faScale" class="pr-2"></fa-icon>
+          <b>Limit Values</b>
+        </div>
+        <div class="card-body py-1">
+
+          <div class=" form-check pl-0 ">
+            <label id="labelLowGamma" for="lowGammaValue" class="form-label my-0 pt-3">Low Limit:    <b>{{mapPotential.lowLimit.toString()}}</b></label>
+            <input #lowGamma
+                   type="range"
+                   class="form-range  mt-1"
+                   min="0"
+                   max="300"
+                   step="5"
+                   id="lowGammaValue"
+                   style="width: 100%"
+                   [value]="mapPotential.lowLimit.toString()"
+                   (change)="onSaveLowGamma(lowGamma.value)"
+                   >
+
+          </div>
+          <div class=" form-check pl-0 pb-2 ">
+            <label id="labelHighGamma" for="highGammaValue" class="form-label my-0 pt-3">High Limit:    <b>{{mapPotential.highLimit.toString()}}</b></label>
+            <input #highGamma
+                   type="range"
+                   class="form-range  mt-1"
+                   min="0"
+                   max="300"
+                   step="5"
+                   id="highGammaValue"
+                   style="width: 100%"
+                   [value]="mapPotential.highLimit.toString()"
+                   (change)="onSaveHighGamma(highGamma.value)"
+            >
+          </div>
+
+        </div>
+      </div>
+
+      <div class="card my-1">
+        <div class="card-header my-header py-2 pl-3 px-1">
+          <fa-icon [icon]="faInfo" class="pr-2"></fa-icon>
+          <b>Information</b>
+        </div>
+        <div class="card-body py-2" >
+          Only for test purpose.
+          The colour map is defined taking into account the low and high limits and the selected metric.
+        </div>
+      </div>
+
+    </div>
+    <div class="col col-lg-9 col-12 px-1 py-2">
+      <div class="map " leaflet [leafletOptions]="options" (leafletMapReady)="onMapReady($event)">
+      </div>
+    </div>
+  </div>
 </div>
+
+

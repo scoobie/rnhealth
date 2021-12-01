@@ -11,3 +11,14 @@
 .map{
   height: 90%;
 }
+
+.card__section{
+  display: flex;
+  flex-direction: column;
+}
+
+.my-header{
+  background-color: gainsboro;
+  padding-left: 0;
+  color: navy;
+}

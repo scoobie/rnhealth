@@ -242,14 +242,14 @@
       <div class="card py-0 mt-1">
         <div class="card-header my-header py-2 pl-3">
           <fa-icon [icon]="faDanger" class="pr-2"></fa-icon>
-          <b>Exposition Risk Level</b>
+          <b>Potential Exposition Level</b>
         </div>
         <div class="card-body py-0">
           <div class="div row pt-2">
-            <div class="col-2 ">
-              <p class="mb-0 float-left ">Risk</p>
+            <div class="col-3 ">
+              <p class="mb-0 float-left ">Level</p>
             </div>
-            <div class="col-10 pb-1 " >
+            <div class="col-9 pb-1 " >
               <div class="row">
                 <h6 class="pr-2"><span class="badge bg-success pl-3 pr-3">Low</span></h6>
                 <h6 class="pr-2"><span class="badge bg-warning ">Medium</span></h6>
@@ -286,11 +286,11 @@
             </div>
           </div>
           <div class="mb-3">
-            <p class="mb-0"><strong>Exposition Risk Level:</strong></p>
+            <p class="mb-0"><strong>Potential Exposition Level:</strong></p>
             <ngb-progressbar [value]="point.pixelValPerc" [type]="getColor()" style="height: 40px"></ngb-progressbar>
           </div>
           <div class="row justify-content-center pb-2" >
-            <button type="button"  hidden [disabled]="true" class="btn btn-primary ">Risk Assessment</button>
+            <button type="button"  hidden [disabled]="true" class="btn btn-primary ">Potential Exposition Assessment</button>
           </div>
         </div>
       </div>
