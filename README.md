@@ -1,6 +1,8 @@
 # Rnhealth installation on local machine
 Install npm and node
+
 Clone the project inside your local machine `git clone https://github.com/scoobie/rnhealth.git`
+
 navigate to the folder `cd rnhealth` and run the command `npm install`
 
 ## Development server
